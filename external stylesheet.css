@@ -1,6 +1,8 @@
+
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+   
   }
   
   .topnav {
@@ -53,3 +55,21 @@ body {
       text-align: left;
     }
   }
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    Box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+.container{
+    width: 100%;
+    min-height: 100vh;
+    padding: 5%;
+    background size: cover;
+}
+
+
