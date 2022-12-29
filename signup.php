@@ -48,17 +48,18 @@ function myFunction() {
   <form method="post" action="signup.php">
     <div class="mb-3 mt-3">
       <label for="Name">Enter Full Name:</label>
-      <input type="Name" class="form-control" id="Name" placeholder="Enter First Name" name="FName">
+      <input type="Name" class="form-control" id="Name" placeholder="Enter First Name" name="fname">
     </div>
 	
 	<div class="mb-3 mt-3">
       <label for="Education">Education:</label>
-      <input type="Education" class="form-control" id="Education" placeholder="Enter Last Name" name="LName">
+      <input type="Education" class="form-control" id="Education" placeholder="Enter Last Name" name="education">
     </div>
 	
 	<div class="mb-3 mt-3">
       <label for="Email">Email:</label>
-      <input type="Email" class="form-control" id="Email" placeholder="Enter your Email" name="Email">
+      <input type="Email" class="form-control" id="Email" placeholder="Enter your Email" name="email">
+	      <input type="hidden" class="form-control" id="Email" value="0" name="isadmin">
     </div>
 	
     <div class="mb-3">
@@ -68,7 +69,7 @@ function myFunction() {
 	
 	<div class="mb-3 mt-3">
       <label for="Address">Address:</label>
-      <input type="Address" class="form-control" id="Address" placeholder="Enter your Email" name="Email">
+      <input type="Address" class="form-control" id="Address" placeholder="Enter your Address" name="address">
     </div>
 	
     <button type="submit" name="submit" class="btn btn-primary">Submit</button>
@@ -110,28 +111,30 @@ $errors = array();
 $db = mysqli_connect('localhost', 'root', '', 'thejobhunt');
 
 // REGISTER USER
-if (isset($_POST['reg_user'])) {
+if (isset($_POST['submit'])) {
   // receive all input values from the form
-  $username = mysqli_real_escape_string($db, $_POST['username']);
-  $password = mysqli_real_escape_string($db, $_POST['password']);
-
-
+  $Fname = mysqli_real_escape_string($db, $_POST['fname']);
+  $education = mysqli_real_escape_string($db, $_POST['education']);
+    $pswd = mysqli_real_escape_string($db, $_POST['pswd']);
+	  $address = mysqli_real_escape_string($db, $_POST['address']);
+  $email = mysqli_real_escape_string($db, $_POST['email']);
+  $isadmin = mysqli_real_escape_string($db, $_POST['isadmin']);
   // form validation: ensure that the form is correctly filled ...
   // by adding (array_push()) corresponding error unto $errors array
-  if (empty($username)) { array_push($errors, "Username is required"); }
+  if (empty($Fname)) { array_push($errors, "Username is required"); }
 
-  if (empty($password)) { array_push($errors, "Password is required"); }
+  if (empty($pswd)) { array_push($errors, "Password is required"); }
  
 
   // first check the database to make sure 
   // a user does not already exist with the same username and/or email
-  $user_check_query = "SELECT * FROM user WHERE uname='$username'  LIMIT 1";
+  $user_check_query = "SELECT * FROM user WHERE email='$email'  LIMIT 1";
   $result = mysqli_query($db, $user_check_query);
   $user = mysqli_fetch_assoc($result);
   
   if ($user) { // if user exists
     if ($user['username'] === $username) {
-      array_push($errors, "Username already exists");
+      array_push($errors, "User already exists");
     }
 
    
@@ -141,12 +144,12 @@ if (isset($_POST['reg_user'])) {
   if (count($errors) == 0) {
   	$password = md5($password);//encrypt the password before saving in the database
 
-  	$query = "INSERT INTO user (uname,pass) 
-  			  VALUES('$username','$password')";
+  	$query = "INSERT INTO user (name,education,isadmin,password,address) 
+  			  VALUES('$username','$education','$isadmin','$pswd','$address')";
   	mysqli_query($db, $query);
-  	$_SESSION['username'] = $username;
+  	$_SESSION['email'] = $email;
   	$_SESSION['success'] = "You are now logged in";
-  	header('location: index.php');
+  	header('location: index.html');
   }
 }
 
