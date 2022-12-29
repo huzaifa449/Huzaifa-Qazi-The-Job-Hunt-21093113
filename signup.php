@@ -108,7 +108,7 @@ $email    = "";
 $errors = array(); 
 
 // connect to the database
-$db = mysqli_connect('localhost', 'root', '', 'thejobhunt');
+$db = mysqli_connect('localhost', 'root','', 'thejobhunt');
 
 // REGISTER USER
 if (isset($_POST['submit'])) {
@@ -126,31 +126,21 @@ if (isset($_POST['submit'])) {
   if (empty($pswd)) { array_push($errors, "Password is required"); }
  
 
-  // first check the database to make sure 
-  // a user does not already exist with the same username and/or email
-  $user_check_query = "SELECT * FROM user WHERE email='$email'  LIMIT 1";
-  $result = mysqli_query($db, $user_check_query);
-  $user = mysqli_fetch_assoc($result);
-  
-  if ($user) { // if user exists
-    if ($user['username'] === $username) {
-      array_push($errors, "User already exists");
-    }
 
-   
-  }
 
   // Finally, register user if there are no errors in the form
-  if (count($errors) == 0) {
+
   	$password = md5($password);//encrypt the password before saving in the database
 
-  	$query = "INSERT INTO user (name,education,isadmin,password,address) 
-  			  VALUES('$username','$education','$isadmin','$pswd','$address')";
+  	$query = "INSERT INTO user (name,eduction,isadmin,password,Address) 
+  			  VALUES('$Fname','$education','$isadmin','$pswd','$address')";
   	mysqli_query($db, $query);
-  	$_SESSION['email'] = $email;
-  	$_SESSION['success'] = "You are now logged in";
-  	header('location: index.html');
-  }
+	
+	
+  	//$_SESSION['email'] = $email;
+  	//$_SESSION['success'] = "You are now logged in";
+  //	header('location: signup.php');
+  
 }
 
 ?>
