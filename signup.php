@@ -51,23 +51,24 @@ function myFunction() {
       <input type="Name" class="form-control" id="Name" placeholder="Enter Full Name" name="fname">
 </div>
 	
-	<div class="mb-3 mt-3">
+	<div class="mb-3">
       <label for="Education">Education:</label>
       <input type="Education" class="form-control" id="Education" placeholder="Enter Your EdCtion Level" name="education">
     </div>
 	
-	<div class="mb-3 mt-3">
+	<div class="mb-3">
       <label for="Email">Email:</label>
       <input type="Email" class="form-control" id="Email" placeholder="Enter your Email" name="email">
 	      <input type="hidden" class="form-control" id="Email" value="0" name="isadmin">
     </div>
 	
-    <div class="mb-3  mt-3">
+    <div class="mb-3">
       <label for="pwd">Create Password:</label>
       <input type="password" class="form-control" id="pwd" placeholder="Create Password" name="pswd">
     </div>
+    
 	
-	<div class="mb-3 mt-3">
+	<div class="mb-3">
       <label for="Address">Address:</label>
       <input type="Address" class="form-control" id="Address" placeholder="Enter your Address" name="address">
     </div>
