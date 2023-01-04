@@ -45,10 +45,10 @@ function myFunction() {
 		
 <div class="container mt-3">
   <h2>Login</h2>
-  <form action="/action_page.php">
+  <form action="login.php" method="post">
     <div class="mb-3 mt-3">
-      <label for="User Name">User Name:</label>
-      <input type="User name" class="form-control" id="User Name" placeholder="Enter User Name" name="User Name">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email address" name="email">
     </div>
     <div class="mb-3">
       <label for="pwd">Password:</label>
@@ -84,4 +84,32 @@ function myFunction() {
   </body>
   </html>
 
-  
+  <?php
+
+$email = $_POST['email'];
+$password = $_POST['password'];
+
+//database connection here
+
+$db = mysqli_connect('localhost', 'root','', 'thejobhunt');
+if($con->connect_error) {
+  die("Failed to connect : " .$con->connect_error);
+} else {
+  $stmt = $con->prepare("select * from registeration where email = ?");
+  $stmt->bind_param("s", $email);
+  $stmt ->execute();
+  $stmt_result = $stmt->get_result();
+  if($stmt_result->num_rows > 0) {
+    $data = $stmt_result->fetch_addoc(); 
+    if($data['password'] === $password) {
+      echo "<h2>Login Sucessfully</h2>";
+
+  }else {
+    echo "<h2> Invalid Email or Passowrd</h2>"; 
+  }
+
+} else {
+  echo "<h2> Invalid Email or Passowrd</h2>";
+}
+}
+?>
