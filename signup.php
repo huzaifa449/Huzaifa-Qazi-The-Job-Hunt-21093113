@@ -49,7 +49,7 @@ function myFunction() {
     <div class="mb-3 mt-3">
       <label for="Name">Enter Full Name:</label>
       <input type="Name" class="form-control" id="Name" placeholder="Enter Full Name" name="fname">
-    </div
+</div>
 	
 	<div class="mb-3 mt-3">
       <label for="Education">Education:</label>
@@ -62,7 +62,7 @@ function myFunction() {
 	      <input type="hidden" class="form-control" id="Email" value="0" name="isadmin">
     </div>
 	
-    <div class="mb-3 mt-3">
+    <div class="mb-3  mt-3">
       <label for="pwd">Create Password:</label>
       <input type="password" class="form-control" id="pwd" placeholder="Create Password" name="pswd">
     </div>
@@ -96,3 +96,51 @@ function myFunction() {
   </footer>
   </body>
   </html>
+  
+  
+
+<?php
+session_start();
+
+// initializing variables
+$username = "";
+$email    = "";
+$errors = array(); 
+
+// connect to the database
+$db = mysqli_connect('localhost', 'root','', 'thejobhunt');
+
+// REGISTER USER
+if (isset($_POST['submit'])) {
+  // receive all input values from the form
+  $Fname = mysqli_real_escape_string($db, $_POST['fname']);
+  $education = mysqli_real_escape_string($db, $_POST['education']);
+    $pswd = mysqli_real_escape_string($db, $_POST['pswd']);
+	  $address = mysqli_real_escape_string($db, $_POST['address']);
+  $email = mysqli_real_escape_string($db, $_POST['email']);
+  $isadmin = mysqli_real_escape_string($db, $_POST['isadmin']);
+  // form validation: ensure that the form is correctly filled ...
+  // by adding (array_push()) corresponding error unto $errors array
+  if (empty($Fname)) { array_push($errors, "Username is required"); }
+
+  if (empty($pswd)) { array_push($errors, "Password is required"); }
+ 
+
+
+
+  // Finally, register user if there are no errors in the form
+
+  	
+
+  	$query = "INSERT INTO user (name,eduction,isadmin,password,Address) 
+  			  VALUES('$Fname','$education','$isadmin','$pswd','$address')";
+  	mysqli_query($db, $query);
+	
+	
+  	//$_SESSION['email'] = $email;
+  	//$_SESSION['success'] = "You are now logged in";
+  //	header('location: signup.php');
+  
+}
+
+?>
