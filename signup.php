@@ -48,12 +48,12 @@ function myFunction() {
   <form method="post" action="signup.php">
     <div class="mb-3 mt-3">
       <label for="Name">Enter Full Name:</label>
-      <input type="Name" class="form-control" id="Name" placeholder="Enter First Name" name="fname">
-    </div>
+      <input type="Name" class="form-control" id="Name" placeholder="Enter Full Name" name="fname">
+    </div
 	
 	<div class="mb-3 mt-3">
       <label for="Education">Education:</label>
-      <input type="Education" class="form-control" id="Education" placeholder="Enter Last Name" name="education">
+      <input type="Education" class="form-control" id="Education" placeholder="Enter Your EdCtion Level" name="education">
     </div>
 	
 	<div class="mb-3 mt-3">
@@ -64,7 +64,7 @@ function myFunction() {
 	
     <div class="mb-3">
       <label for="pwd">Create Password:</label>
-      <input type="password" class="form-control" id="pwd" placeholder="create password" name="pswd">
+      <input type="password" class="form-control" id="pwd" placeholder="Create Password" name="pswd">
     </div>
 	
 	<div class="mb-3 mt-3">
