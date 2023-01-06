@@ -22,7 +22,7 @@
   <a href="Index.php">Goal</a>
   <a href="News.html">News</a>
   <a href="Contact us.html">Contact</a>
-  <a href="jobs display.php">Jobs</a>
+  <a href="jobs_display.php">Jobs</a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>
@@ -66,7 +66,7 @@ function myFunction() {
       <label for="pwd">Create Password:</label>
       <input type="password" class="form-control" id="pwd" placeholder="Create Password" name="pswd">
     </div>
-    
+
 	
 	<div class="mb-3">
       <label for="Address">Address:</label>

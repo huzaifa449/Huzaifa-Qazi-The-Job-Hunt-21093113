@@ -22,7 +22,7 @@
   <a href="Index.html">Goal</a>
   <a href="News.html">News</a>
   <a href="Contact us.html">Contact</a>
-  <a href="jobs display.html">Jobs</a>
+  <a href="jobs_display.php">Jobs</a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>
@@ -43,6 +43,7 @@
     <button class="button">Continue Without signup</button>
 </a>
 
+<br><br><br>
   <!--FOOTER-->
   
   <footer class="footer-distributed">
