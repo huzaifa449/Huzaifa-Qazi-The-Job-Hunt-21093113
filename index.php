@@ -28,48 +28,20 @@
   </a>
 </div>
 
-<script>
-function myFunction() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
-}
-</script>
 <img src = "https://cdn.syncfusion.com/content/images/Careers/career-logo.png" alt="jump start your career" width height= "142">
 	</body>
 	
-</html>
-		
-<div class="container mt-3">
-  <h2>Sign up </h2>
-  <form action="/action_page.php">
-    <div class="mb-3 mt-3">
-      <label for="First Name">First Name:</label>
-      <input type="First Name" class="form-control" id="First Name" placeholder="Enter First Name" name="First Name">
-    </div>
-	
-	<div class="mb-3 mt-3">
-      <label for="Last Name">Last Name:</label>
-      <input type="Last Name" class="form-control" id="Last Name" placeholder="Enter Last Name" name="Last Name">
-    </div>
-	
-	<div class="mb-3 mt-3">
-      <label for="Email">Email:</label>
-      <input type="Email" class="form-control" id="Email" placeholder="Enter your Email" name="Email">
-    </div>
-	
-    <div class="mb-3">
-      <label for="pwd">Create Password:</label>
-      <input type="password" class="form-control" id="pwd" placeholder="create password" name="pswd">
-    </div>
+  <p style="font-size: 15px">Press login or skip to start carving your path to the much awaited future.</p>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-</div>
+  <a href="Login.php">
+    <button class="button">Login</button>
 
+<a href="signup.php">
+    <button class="button">Register</button>
+
+  <a href="jobs_display.php">
+    <button class="button">Continue Without signup</button>
+</a>
 
   <!--FOOTER-->
   
