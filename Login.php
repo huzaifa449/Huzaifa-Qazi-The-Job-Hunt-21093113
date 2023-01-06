@@ -18,11 +18,11 @@
 <body>
 
 <div class="topnav" id="myTopnav">
-  <a href="Login.html"class="active">Login</a>
-  <a href="Index.html">Goal</a>
+  <a href="Login.php"class="active">Login</a>
+  <a href="Index.php">Goal</a>
   <a href="News.html">News</a>
   <a href="Contact us.html">Contact</a>
-  <a href="jobs display.html">Jobs</a>
+  <a href="jobs display.php">Jobs</a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>
@@ -45,7 +45,7 @@ function myFunction() {
 		
 <div class="container mt-3">
   <h2>Login</h2>
-  <form action="login.php" method="post">
+  <form action="Login.php" method="post">
     <div class="mb-3 mt-3">
       <label for="email">Email:</label>
       <input type="email" class="form-control" id="email" placeholder="Enter email address" name="email">
@@ -59,7 +59,7 @@ function myFunction() {
         <input class="form-check-input" type="checkbox" name="remember"> Remember me
       </label>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit"  name="submit" class="btn btn-primary">Submit</button>
   </form>
 </div>
 
@@ -86,30 +86,38 @@ function myFunction() {
 
   <?php
 
-$email = $_POST['email'];
-$password = $_POST['password'];
+ 
+$dbcon=mysqli_connect("localhost","root","");  
+mysqli_select_db($dbcon,"thejobhunt");    
+  
+if(isset($_POST['submit']))  
+{  
 
-//database connection here
-
-$db = mysqli_connect('localhost', 'root','', 'thejobhunt');
-if($con->connect_error) {
-  die("Failed to connect : " .$con->connect_error);
-} else {
-  $stmt = $con->prepare("select * from registeration where email = ?");
-  $stmt->bind_param("s", $email);
-  $stmt ->execute();
-  $stmt_result = $stmt->get_result();
-  if($stmt_result->num_rows > 0) {
-    $data = $stmt_result->fetch_addoc(); 
-    if($data['password'] === $password) {
-      echo "<h2>Login Sucessfully</h2>";
-
-  }else {
-    echo "<h2> Invalid Email or Passowrd</h2>"; 
-  }
-
-} else {
-  echo "<h2> Invalid Email or Passowrd</h2>";
+    $email=$_POST['email'];  
+    $password=$_POST['pswd'];  
+  
+    $check_user="select * from user WHERE email='$email' AND password='$password'";  
+  
+    $run=mysqli_query($dbcon,$check_user);  
+  
+     if(mysqli_num_rows($run) )  
+    {  
+session_start(); 
+        $_SESSION['email']=$uname;//here session is used and value of $uname store in $_SESSION.  
+        echo "<script>window.open('index.php','_self')</script>";  
+			
+  
+    }  
+    else  
+    { 
+            
+      echo "<script>alert('Username or password is incorrect!')</script>";  
+    }  
 }
-}
+else{
+	
+	  
+}	
+
+
 ?>

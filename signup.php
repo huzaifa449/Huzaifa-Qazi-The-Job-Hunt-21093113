@@ -18,11 +18,11 @@
 <body>
 
 <div class="topnav" id="myTopnav">
-  <a href="Login.html"class="active">Login</a>
-  <a href="Index.html">Goal</a>
+  <a href="Login.php"class="active">Login</a>
+  <a href="Index.php">Goal</a>
   <a href="News.html">News</a>
   <a href="Contact us.html">Contact</a>
-  <a href="jobs display.html">Jobs</a>
+  <a href="jobs display.php">Jobs</a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>

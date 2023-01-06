@@ -170,3 +170,14 @@ section {
 .box{
   background-color: #f1ce98;
 }
+
+
+
+@media (max-width: 600px) {
+table tr td {
+
+  width:auto;
+  height: auto;
+}
+td, th   { display: table-cell }
+}
