@@ -23,7 +23,7 @@
   <a href="Index.php">Goal</a>
   <a href="News.html">News</a>
   <a href="Contact us.html">Contact</a>
-  <a href="jobs_display.php">Jobs</a>
+  <a href="jobs display.php">Jobs</a>
   <a href="javascript:void(0);" class="icon" onclick="myFunction()">
     <i class="fa fa-bars"></i>
   </a>
@@ -153,7 +153,7 @@ if(isset($_POST['save']))
 <script src="jquery-3.2.1.min.js"></script>
 <script src="bootstrap.min.js"></script>
 
-
+<br><br><br><br>
   <footer class="footer-distributed">
   
     <div class="footer-right"style="float:bottom">
