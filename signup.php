@@ -136,7 +136,8 @@ if (isset($_POST['submit'])) {
   	$query = "INSERT INTO user (name,eduction,isadmin,password,Address) 
   			  VALUES('$Fname','$education','$isadmin','$pswd','$address')";
   	mysqli_query($db, $query);
-	
+
+	//upon registering suceafully, te user will be taken to jobs_display page 
 	
   	$_SESSION['email'] = $email;
   	$_SESSION['success'] = "You are now logged in";
