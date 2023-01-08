@@ -104,7 +104,7 @@ if(isset($_POST['submit']))
     {  
 session_start(); 
         $_SESSION['email']=$uname;//here session is used and value of $uname store in $_SESSION.  
-        echo "<script>window.open('index.php','_self')</script>";  
+        echo "<script>window.open('jobs_display.php','_self')</script>";  
 			
   
     }  
