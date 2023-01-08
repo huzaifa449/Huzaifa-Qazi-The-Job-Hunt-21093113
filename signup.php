@@ -138,9 +138,9 @@ if (isset($_POST['submit'])) {
   	mysqli_query($db, $query);
 	
 	
-  	//$_SESSION['email'] = $email;
-  	//$_SESSION['success'] = "You are now logged in";
-  //	header('location: signup.php');
+  	$_SESSION['email'] = $email;
+  	$_SESSION['success'] = "You are now logged in";
+    header('location: jobs_display.php');
   
 }
 
